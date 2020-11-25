@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        {{-- Title --}}<!-- bagian ini akan dipanggil pada @section('title') -->
         <title>@yield('title')</title>
         @yield('css')
         <link href="{{ asset('adminstyle/css/styles.css') }}" rel="stylesheet" />
@@ -13,13 +14,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
-        {{-- TOPNAV --}}
+        {{-- TOPNAV --}}<!-- bagian ini akan dipanggil pada file external dengan extensi .blade.php -->
         @include('layouts.inc.admin.topnav')
         <div id="layoutSidenav">
-            {{-- SIDENAV --}}
+            {{-- SIDENAV --}}<!-- bagian ini akan dipanggil pada file external dengan extensi .blade.php -->
             @include('layouts.inc.admin.sidenav')
             
-            {{-- CONTENT --}}
+            {{-- CONTENT --}}<!-- bagian ini akan dipanggil pada @section('content') -->
             @yield('content')
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>

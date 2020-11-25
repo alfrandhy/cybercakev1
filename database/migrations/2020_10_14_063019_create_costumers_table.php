@@ -19,7 +19,7 @@ class CreateCostumersTable extends Migration
             $table->string('email')->unique();
             $table->string('phone_number');
             $table->string('address');
-            $table->unsignedBigInteger('district_id'); //FIELD INI AKAN MERUJUK PADA TABLE districts NANTINYA UNTUK MENGAMBIL DATA KOTA CUSTOMER
+            $table->unsignedBigInteger('district_id');
             $table->boolean('status')->default(false);
             $table->timestamps();
         });
