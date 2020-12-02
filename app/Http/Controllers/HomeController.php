@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,8 +23,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Product $product, Category $category)
     {
-        return view('admin.index');
+        return view('admin.index', compact('category','product'));
     }
 }

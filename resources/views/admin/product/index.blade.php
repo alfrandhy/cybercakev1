@@ -8,6 +8,7 @@
             <div class="container-fluid">
                 <h1 class="mt-4">Dashboard</h1>
                 <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item">Dashboard</li>
                     <li class="breadcrumb-item active">Product</li>
                 </ol>
                 <div class="row">
@@ -62,7 +63,7 @@
                                                 </td>
                                                 <td>
                                                     <strong>{{  $item->name }}</strong>
-                                                    <label for="category"><span class="badge badge-info">{{ $item->category->name }}</span></label>
+                                                    <br><label for="category"><span class="badge badge-info">{{ $item->category->name }}</span></label>
                                                     <br><label for="weight">Berat: <span class="badge badge-success">{{ $item->weight }} gr</span></label>
                                                     <br><label for="price">Harga: <span class="badge badge-primary">Rp. {{ number_format($item->price) }}</span></label>
                                                 </td>
@@ -74,8 +75,9 @@
                                                     <form action="{{ route('product.destroy',$item->id) }}"  method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('product.edit',$item->id) }}" class="btn btn-warning">Edit</a>
-                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                        <a title="Edit" href="{{ route('category.edit',$item->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a title="View" href="#" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                                                        <button title="Delete" type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>

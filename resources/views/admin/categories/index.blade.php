@@ -8,8 +8,17 @@
             <div class="container-fluid">
                 <h1 class="mt-4">Dashboard</h1>
                 <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item">Dashboard</li>
                     <li class="breadcrumb-item active">Category</li>
                 </ol>
+                {{-- Alert --}}
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>{{ session('success') }}</div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>{{ session('error') }}</div>
+                @endif
+                {{-- /.Alert --}}
                 <div class="row">
                     <div class="col-xl-4">
                         <div class="card mb-4">
@@ -53,14 +62,6 @@
                                 List Category
                             </div>
                             <div class="card-body">
-                                {{-- Alert --}}
-                                @if (session('success'))
-                                    <div class="alert alert-success">{{ session('success') }}</div>
-                                @endif
-                                @if (session('error'))
-                                    <div class="alert alert-danger">{{ session('error') }}</div>
-                                @endif
-                                {{-- /.Alert --}}
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
@@ -97,8 +98,8 @@
                                                     <form action="{{ route('category.destroy',$item->id) }}"  method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('category.edit',$item->id) }}" class="btn btn-warning">Edit</a>
-                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                        <a title="Edit" href="{{ route('category.edit',$item->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                                        <button title="Delete" type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>

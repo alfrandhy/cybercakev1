@@ -20,14 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'MemberController@index')->name('beranda');
 Route::get('/product', 'MemberController@product')->name('product');
 
-Auth::routes();
-
-Route::group(['prefix' => 'manajemen'], function () {
+Route::group(['prefix' => 'auth'], function () {
+    Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
-
     // Category
     Route::resource('category', 'CategoryController')->except('create','show');
-
     // Product
     Route::resource('product', 'ProductController');
 });
